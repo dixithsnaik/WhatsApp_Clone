@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "407114274959",
+    "project_id": "whatsapp-bfa04",
+    "storage_bucket": "whatsapp-bfa04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407114274959:android:ffbe89c678a542dd2578fa",
+        "android_client_info": {
+          "package_name": "Dixith.S.Naik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1nawLknktz8Xlwck5gjkpUxYTtnnc8vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407114274959:android:dd412d54df22de802578fa",
+        "android_client_info": {
+          "package_name": "com.example.watsapp_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1nawLknktz8Xlwck5gjkpUxYTtnnc8vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
