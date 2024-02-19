@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:watsapp_clone/colors.dart';
 
 class WebSearchBar extends StatelessWidget {
-  const WebSearchBar({super.key});
+  const WebSearchBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.10,
+      height: MediaQuery.of(context).size.height * 0.06,
       width: MediaQuery.of(context).size.width * 0.25,
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
@@ -20,19 +20,19 @@ class WebSearchBar extends StatelessWidget {
           filled: true,
           fillColor: searchBarColor,
           prefixIcon: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(Icons.search,size: 20,),
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Icon(Icons.search, size: 20),
           ),
-          hintText: 'Search or start a new chat',
           hintStyle: const TextStyle(fontSize: 14),
+          hintText: 'Search or start new chat',
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(20.0),
             borderSide: const BorderSide(
               width: 0,
               style: BorderStyle.none,
             ),
           ),
-          contentPadding: EdgeInsets.all(10),
+          contentPadding: const EdgeInsets.all(10),
         ),
       ),
     );

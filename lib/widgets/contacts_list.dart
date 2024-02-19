@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:watsapp_clone/colors.dart';
-import 'package:watsapp_clone/widgets/info.dart';
+import 'package:watsapp_clone/info.dart';
+import 'package:watsapp_clone/screens/mobile_chat_screen.dart';
 
-class ContactsLists extends StatelessWidget {
-  const ContactsLists({super.key});
+class ContactsList extends StatelessWidget {
+  const ContactsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10.0),
       child: ListView.builder(
         shrinkWrap: true,
         itemCount: info.length,
@@ -16,16 +17,24 @@ class ContactsLists extends StatelessWidget {
           return Column(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const MobileChatScreen(),
+                    ),
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: ListTile(
                     title: Text(
                       info[index]['name'].toString(),
-                      style: const TextStyle(fontSize: 18),
+                      style: const TextStyle(
+                        fontSize: 18,
+                      ),
                     ),
                     subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 6),
+                      padding: const EdgeInsets.only(top: 6.0),
                       child: Text(
                         info[index]['message'].toString(),
                         style: const TextStyle(fontSize: 15),
@@ -35,19 +44,19 @@ class ContactsLists extends StatelessWidget {
                       backgroundImage: NetworkImage(
                         info[index]['profilePic'].toString(),
                       ),
-                      radius: 25,
+                      radius: 30,
                     ),
                     trailing: Text(
                       info[index]['time'].toString(),
-                      style: const TextStyle(fontSize: 13, color: Colors.grey),
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 13,
+                      ),
                     ),
                   ),
                 ),
               ),
-              const Divider(
-                color: dividerColor,
-                indent: 85,
-              ),
+              const Divider(color: dividerColor, indent: 85),
             ],
           );
         },
