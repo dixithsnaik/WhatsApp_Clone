@@ -24,15 +24,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Whatsapp UI',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: backgroundColor,
-          appBarTheme: const AppBarTheme(
-            color: appBarColor,
-          ),
+      debugShowCheckedModeBanner: false,
+      title: 'Whatsapp UI',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: backgroundColor,
+        appBarTheme: const AppBarTheme(
+          color: appBarColor,
         ),
-        onGenerateRoute: (settings) => generateRoute(settings),
-        home: const LandingScreen());
+      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const LandingScreen(),
+    );
   }
 }

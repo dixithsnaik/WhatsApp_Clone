@@ -3,9 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:watsapp_clone/features/auth/screens/otp_screen.dart';
+import 'package:watsapp_clone/features/auth/screens/user_information_screen.dart';
 import 'package:watsapp_clone/utils/utils.dart';
 
-final AuthRepositoryProvider = Provider(
+final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
     auth: FirebaseAuth.instance,
     firestore: FirebaseFirestore.instance,
@@ -32,13 +33,34 @@ class AuthRepository {
           throw Exception(e.message!);
         },
         codeSent: ((String verificationId, int? resndToken) async {
-          Navigator.pushNamed(context, OtpScreen.routename,
+          Navigator.pushNamed(context, OtpScreen.routeName,
               arguments: verificationId);
         }),
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: e.message!);
+    }
+  }
+
+  void verifyOTP({
+    required BuildContext context,
+    required String verificationId,
+    required String userOTP,
+  }) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId, smsCode: userOTP);
+      await auth.signInWithCredential(credential);
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        UserInformationScreen.routeName,
+        (route) => false,
+      );
+    } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
+      showSnackBar(context: context, content: e.message as String);
     }
   }
 }
